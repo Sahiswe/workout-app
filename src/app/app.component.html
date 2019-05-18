@@ -1,20 +1,32 @@
-<h1>{{title}}</h1>
-<ul >
-  <li>
-    <a routerLink="/workouts">View All</a>
-  </li>
+<!DOCTYPE html>
+<html>
 
-  <li>
-    <a routerLink="/create">Create</a>
-  
-  </li>
-  <li>
-    <a routerLink="/category">Category</a>
-  </li>
-  <li>
-    <a routerLink="/track">Track</a>
-  </li>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-</ul>
-<router-outlet></router-outlet>
+</head>
 
+<body>
+
+    <div class="header">
+        <h1 align="center">WORKOUT TRACER</h1>
+        <div class="header-center">
+
+        </div>
+    </div>
+
+    <div class="bg-img">
+        <div class="container">
+            <div class="topnav">
+                <a routerLink="/workouts">View all</a>
+                <a routerLink="/category">Category</a>
+                <a routerLink="/create">Create</a>
+                <a routerLink="/track">Track</a>
+            </div>
+            <router-outlet></router-outlet>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +10,7 @@ export class WorkoutService {
 
   constructor(private http: HttpClient) { }
 
-  getWorkouts() {
-    this.http.get('http://localhost:6868/api/v1/workouts')
-      .subscribe(arg => this.property = arg);
+  getWorkouts(): Observable<any> {
+    return this.http.get('http://localhost:8081/api/v1/all');
+   }
   }
-  createworkouts(){
-    this.http.get('http://localhost:6868/api/v1/workouts')
-      .subscribe(arg => this.property = arg);
-  }
-  category(){
-    this.http.get('http://localhost:6868/api/v1/workouts')
-      .subscribe(arg => this.property = arg);
-  }
- trackworkouts() {
-    this.http.get('http://localhost:6868/api/v1/workouts')
-      .subscribe(arg => this.property = arg);
-  }
-}

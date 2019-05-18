@@ -11,9 +11,6 @@ export class TrackerWorkoutComponent implements OnInit {
   constructor(private service: WorkoutService) { }
 
   ngOnInit() {
-    this.trackworkouts();
+    
   }
-trackworkouts() {
-    this.service.trackworkouts();
-}
 }

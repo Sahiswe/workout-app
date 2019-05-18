@@ -7,15 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./workouts.component.css']
 })
 export class WorkoutsComponent implements OnInit {
+  workouts: any;
 
-  constructor(private service: WorkoutService) { }
+  constructor(private workoutService: WorkoutService) { }
 
   ngOnInit() {
-    this.getWorkouts();
+    this.workoutService.getWorkouts().subscribe((result) => this.workouts = result);
   }
 
-  getWorkouts() {
-    this.service.getWorkouts();
-  }
+ 
 
 }

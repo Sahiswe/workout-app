@@ -1,3 +1,4 @@
+import { CategoryService } from './category.service';
 import { WorkoutService } from './workout.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -9,6 +10,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateWorkoutComponent } from './create-workout/create-workout.component';
 import { CategoryComponent } from './category/category.component';
 import { TrackerWorkoutComponent } from './tracker-workout/tracker-workout.component';
+import { StartWorkoutComponent } from './start-workout/start-workout.component';
+import { EndWorkoutComponent } from './end-workout/end-workout.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +19,9 @@ import { TrackerWorkoutComponent } from './tracker-workout/tracker-workout.compo
     WorkoutsComponent,
     CreateWorkoutComponent,
     CategoryComponent,
-    TrackerWorkoutComponent
+    TrackerWorkoutComponent,
+    StartWorkoutComponent,
+    EndWorkoutComponent
 
   ],
   imports: [
@@ -25,7 +30,8 @@ import { TrackerWorkoutComponent } from './tracker-workout/tracker-workout.compo
     HttpClientModule
 
   ],
-  providers: [WorkoutService],
+  providers: [WorkoutService,
+  CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

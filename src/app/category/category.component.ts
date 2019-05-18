@@ -1,5 +1,7 @@
-import { WorkoutService } from './../workout.service';
+import { CategoryService } from './../category.service';
+
 import { Component, OnInit } from '@angular/core';
+
 
 
 @Component({
@@ -8,13 +10,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+  categories;
 
-  constructor(private service: WorkoutService) { }
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit() {
-   this.category();
-  }
-category(){
-  this.category();
+   this.categoryService.getCategories().subscribe((result)=>this.categories =result);
 }
 }

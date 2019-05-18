@@ -7,7 +7,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { WorkoutsComponent } from './workouts/workouts.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/workouts', pathMatch: 'full' },
   { path: 'workouts', component: WorkoutsComponent },
    { path: 'create', component: CreateWorkoutComponent },
    { path: 'category', component: CategoryComponent},
