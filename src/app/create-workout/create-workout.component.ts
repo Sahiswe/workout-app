@@ -11,11 +11,11 @@ export class CreateWorkoutComponent implements OnInit {
   constructor(private service: WorkoutService) { }
 
   ngOnInit() {
-    this.createworkout();
+    //this.createworkout();
   }
-  createworkout(){
-    this.createworkout();
+  //createworkout(){
+    //this.createworkout();
 
-  }
+ // }
 
 }

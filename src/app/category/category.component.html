@@ -1,8 +1,21 @@
 
 
-<form>
-  <input type="text" name="search" placeholder="Search..">
+
+<form (ngSubmit)="addCategory()">
+  <input type="text" placeholder="Search"/><br>
+  <input type="text" placeholder="Add Workout" [(ngModel)]="categoryName" name="categoryName"/>
+  <input type="submit" value="Add"/>
 </form>
-<div style= "color: azure" *ngFor="let category of categories">
-  {{category.categoryName}}
-</div>
+{{msg}}
+<table>
+<tr style="color:white" *ngFor="let category of categories">
+  <td>
+    {{category.categoryName }}
+  </td>
+  <td><input type="button" value="Edit"/></td>
+
+  <td><input type="button" value="Delete" #delete name="{{category._id}}"(click)="deleteCategory"/></td>
+
+</tr>
+
+</table>

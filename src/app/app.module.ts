@@ -12,6 +12,7 @@ import { CategoryComponent } from './category/category.component';
 import { TrackerWorkoutComponent } from './tracker-workout/tracker-workout.component';
 import { StartWorkoutComponent } from './start-workout/start-workout.component';
 import { EndWorkoutComponent } from './end-workout/end-workout.component';
+import { FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { EndWorkoutComponent } from './end-workout/end-workout.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [WorkoutService,
