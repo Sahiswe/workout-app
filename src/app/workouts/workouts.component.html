@@ -1,12 +1,13 @@
 <form>
   <div class="form-group">
-    <!-- <label for="exampleFormControlInput1">Email address</label> -->
+   
     <input type="text" class="form-control" id="searchFormControlInput1" placeholder="Search..">
   </div>
 </form>
-<!-- <div style= "color: azure" *ngFor="let workout of workouts"> -->
-<!-- {{workout.workoutTitle}} -->
-<!-- </div> -->
+
+
+
+
 <div class="p-10 mt-4" style="border:1px solid grey" *ngFor="let workout of workouts">
   <span class="d-block p-2 bg-dark text-white p-10">{{workout.workoutTitle}}</span>
   <div class="d-flex justify-content-between pt-8">

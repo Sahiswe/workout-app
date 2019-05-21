@@ -12,5 +12,10 @@ export class WorkoutService {
 
   getWorkouts(): Observable<any> {
     return this.http.get('http://localhost:8081/api/v1/all');
-   }
   }
+
+  addWorkout(workout: any) {
+    const options = { headers: { 'Content-Type': 'application/json' } };
+    return this.http.post('http://localhost:8081/api/v1/workout/category/add', workout, options);
+  }
+}

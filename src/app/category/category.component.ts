@@ -11,36 +11,56 @@ import { Category } from './category';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
+  [x: string]:any;
+
   categories;
-  categoryName: string;
+  categoryName: String;
   msg: any;
+  categoryId;
+  
 
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit() {
-   this.categoryService.getCategories().subscribe((result) => this.categories = result);
-}
-addCategory() {
+    this.getCategories();
+  }
+  addCategory() {
+   console.log('inside' + this.categoryName);
+    const category = new Category();
+    category.categoryName = this.categoryName;
+   this.categoryService.postCategory(category).subscribe((data) => {
+    this.getCategories();
+    });
+  }
+  editcategory(category:Category){
+    console.log(category);
+    this.categoryName = category.categoryName;
+    this.categoryId=category._id;
+  }
+  updateCategory(category: Category){
+    var category= new Category();
+    category.categoryName=this.categoryName;
+    category._id=this.categoryId;
+   this.categoryService.updateCategory(category).subscribe((result) =>{
+      this.getCategories();
+    });
+  
 
-  console.log('inside' + this.categoryName);
+  }
+  deleteCategory(id: any) {
+    console.log(id);
+    this.categoryService.deleteCategory(id).subscribe((result) => {
+      this.getCategories();
+    });
+  }
+  
+  
 
-  const category = new Category();
 
-  category.categoryName = this.categoryName;
-
-  this.categoryService.postCategory(category).subscribe((data) => this.msg = data);
-
-  this.categoryService.getCategories().subscribe((result) => this.categories = result);
-
-   }
-   deleteCategory(id: any) {
-     console.log(id);
-     this.categoryService.deleteCategory(id).subscribe((result)=> this.msg = result);
-// tslint:disable-next-line: align
+  getCategories() {
     this.categoryService.getCategories().subscribe((result) => this.categories = result);
-
-    }
-   }
+  }
+}
 
 
 

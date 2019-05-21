@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WorkoutService } from '../workout.service';
+import { CategoryService } from '../category.service';
 
 @Component({
   selector: 'app-create-workout',
@@ -7,15 +8,31 @@ import { WorkoutService } from '../workout.service';
   styleUrls: ['./create-workout.component.css']
 })
 export class CreateWorkoutComponent implements OnInit {
+  categories: any;
+  [x: string]:any;
 
-  constructor(private service: WorkoutService) { }
+  categoryName: String;
+
+  constructor(private workoutService: WorkoutService, private categoryService: CategoryService) { }
 
   ngOnInit() {
-    //this.createworkout();
+    this.getCategories();
   }
-  //createworkout(){
-    //this.createworkout();
+  addCategory() {
+    console.log('inside' + this.categoryName);
+     const category = new Category();
+     category.categoryName = this.categoryName;
+    this.categoryService.postCategory(category).subscribe((data) => {
+     this.getCategories();
+     });
+   }
 
- // }
+  getCategories() {
+    this.categoryService.getCategories().subscribe((result) => this.categories = result);
+  }
+
+  addWorkout(workout: any) {
+    this.workoutService.addWorkout(workout);
+  }
 
 }
