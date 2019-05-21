@@ -13,6 +13,7 @@ import { TrackerWorkoutComponent } from './tracker-workout/tracker-workout.compo
 import { StartWorkoutComponent } from './start-workout/start-workout.component';
 import { EndWorkoutComponent } from './end-workout/end-workout.component';
 import { FormsModule} from '@angular/forms';
+import { EditWorkoutComponent } from './edit-workout/edit-workout.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule} from '@angular/forms';
     CategoryComponent,
     TrackerWorkoutComponent,
     StartWorkoutComponent,
-    EndWorkoutComponent
+    EndWorkoutComponent,
+    EditWorkoutComponent
 
   ],
   imports: [

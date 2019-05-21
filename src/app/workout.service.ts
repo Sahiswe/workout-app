@@ -16,6 +16,14 @@ export class WorkoutService {
 
   addWorkout(workout: any) {
     const options = { headers: { 'Content-Type': 'application/json' } };
-    return this.http.post('http://localhost:8081/api/v1/workout/category/add', workout, options);
+    return this.http.post('http://localhost:8081/api/v1/workout/add', workout, options);
+  }
+  updateWorkout(workout: any) {
+    const options = { headers: { 'Content-Type': 'application/json' } };
+    return this.http.put('http://localhost:8081/api/v1/workout/update', workout, options);
+  }
+  deleteWorkout(id: any) {
+    // const options = { headers: { 'Content-Type': 'application/json' } };
+    return this.http.delete('http://localhost:8081/api/v1/workout/delete/' + id);
   }
 }

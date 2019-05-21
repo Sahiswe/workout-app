@@ -23,11 +23,10 @@ export class CategoryService {
   }
   updateCategory(category: Category) {
     const options = { headers: { 'Content-Type': 'application/json' } };
-    return this.http.put('http://localhost:8081/api/v1/workout/category/add',JSON.stringify(category), options);
+    return this.http.put('http://localhost:8081/api/v1/workout/category/update', category, options);
   }
   deleteCategory(id: any) {
     return this.http.delete('http://localhost:8081/api/v1/workout/category/delete/' + id);
-   // return this.http.delete('http://localhost:8081/api/v1/workout/category/delete', category);
   }
 
 }

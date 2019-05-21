@@ -11,10 +11,11 @@
 <div class="p-10 mt-4" style="border:1px solid grey" *ngFor="let workout of workouts">
   <span class="d-block p-2 bg-dark text-white p-10">{{workout.workoutTitle}}</span>
   <div class="d-flex justify-content-between pt-8">
-    <button type="button" class="btn btn-outline-primary btn-lg">Edit</button>
-    <button type="button" class="btn btn-outline-danger btn-lg">Delete</button>
-    <button type="button" class="btn btn-outline-secondary btn-lg">Start</button>
-    <button type="button" class="btn btn-outline-secondary btn-lg">End</button>
+    <button type="button" class="btn btn-outline-primary btn-lg" (click)="editWorkout(workout)">Edit</button>
+    <button type="button" class="btn btn-outline-danger btn-lg" (click)="deleteWorkout(workout._id)">Delete</button>
+    <button type="button" class="btn btn-outline-secondary btn-lg" (click)="startWorkout(workout)">Start</button>
+    <button type="button" class="btn btn-outline-secondary btn-lg" (click)="endWorkout(workout)">End</button>
+    
   </div>
 
 </div>

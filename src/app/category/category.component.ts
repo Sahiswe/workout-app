@@ -11,13 +11,13 @@ import { Category } from './category';
   styleUrls: ['./category.component.css']
 })
 export class CategoryComponent implements OnInit {
-  [x: string]:any;
+  [x: string]: any;
 
   categories;
   categoryName: String;
   msg: any;
   categoryId;
-  
+
 
   constructor(private categoryService: CategoryService) { }
 
@@ -25,36 +25,36 @@ export class CategoryComponent implements OnInit {
     this.getCategories();
   }
   addCategory() {
-   console.log('inside' + this.categoryName);
+    console.log('inside' + this.categoryName);
     const category = new Category();
+    category._id = Math.floor(Math.random() * 99) + 10;
     category.categoryName = this.categoryName;
-   this.categoryService.postCategory(category).subscribe((data) => {
-    this.getCategories();
-    });
-  }
-  editcategory(category:Category){
-    console.log(category);
-    this.categoryName = category.categoryName;
-    this.categoryId=category._id;
-  }
-  updateCategory(category: Category){
-    var category= new Category();
-    category.categoryName=this.categoryName;
-    category._id=this.categoryId;
-   this.categoryService.updateCategory(category).subscribe((result) =>{
+    this.categoryService.postCategory(category).subscribe((data) => {
       this.getCategories();
     });
-  
-
   }
+  editCategory(category: Category) {
+    console.log(category);
+    this.categoryName = category.categoryName;
+    this.categoryId = category._id;
+  }
+  updateCategory(category: Category) {
+    var category = new Category();
+    category.categoryName = this.categoryName;
+    category._id = this.categoryId;
+    this.categoryService.updateCategory(category).subscribe((result) => {
+      this.getCategories();
+    });
+  }
+
   deleteCategory(id: any) {
     console.log(id);
     this.categoryService.deleteCategory(id).subscribe((result) => {
       this.getCategories();
     });
   }
-  
-  
+
+
 
 
   getCategories() {
