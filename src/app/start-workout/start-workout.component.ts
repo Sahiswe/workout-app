@@ -20,7 +20,8 @@ export class StartWorkoutComponent implements OnInit {
     console.log(this.router.getCurrentNavigation().extras.state.data);
     this.workout = this.router.getCurrentNavigation().extras.state.data;
     this.workout.startDate = formatDate(this.today, 'yyyy-MM-dd', 'en-US', '+0530');
-    this.workout.startTime = formatDate(this.today, 'yyyy-MM-dd hh:mm:ss', 'en-US', '+0530');
+    this.workout.startTime = formatDate(this.today, 'hh:mm:ss', 'en-US', '+0530');
+    // this.workout.startTime = '2019-05-17T05:30:00';
   }
 
 
@@ -33,9 +34,9 @@ export class StartWorkoutComponent implements OnInit {
     workout.categories = this.workout.categories;
     workout.detail = {
       startDate: this.workout.startDate,
-      startTime: this.workout.startTime
+      startTime: this.workout.startDate + 'T' + this.workout.startTime
     };
-    workout.details.push( workout.detail);
+    workout.details.push(workout.detail);
     this.workoutService.updateWorkout(JSON.stringify(workout)).subscribe((result) => {
       const successMessage = 'Workout updated successfully';
       console.log(successMessage);
