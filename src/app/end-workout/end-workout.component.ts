@@ -29,6 +29,8 @@ export class EndWorkoutComponent implements OnInit {
     workout.details = [];
     workout.categories = this.workout.categories;
     workout.detail = {
+      startDate:this.workout.endDate,
+      startTime: this.workout.endDate + 'T' + this.workout.endTime,
       endDate: this.workout.endDate,
       endTime: this.workout.endDate + 'T' + this.workout.endTime
     };

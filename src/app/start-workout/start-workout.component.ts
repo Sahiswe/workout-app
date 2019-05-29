@@ -34,7 +34,9 @@ export class StartWorkoutComponent implements OnInit {
     workout.categories = this.workout.categories;
     workout.detail = {
       startDate: this.workout.startDate,
-      startTime: this.workout.startDate + 'T' + this.workout.startTime
+
+      startTime: this.workout.startDate + 'T' + this.workout.startTime,
+
     };
     workout.details.push(workout.detail);
     this.workoutService.updateWorkout(JSON.stringify(workout)).subscribe((result) => {
